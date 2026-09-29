@@ -1,0 +1,204 @@
+:root {
+    --fundo: #f6f7f9;
+    --superficie: #ffffff;
+    --borda: #e4e7ec;
+    --borda-forte: #d0d5dd;
+    --texto: #101828;
+    --texto-2: #475467;
+    --texto-3: #98a2b3;
+    --primaria: #1d4ed8;
+    --primaria-hover: #1e40af;
+    --sucesso: #067647;
+    --sucesso-fundo: #ecfdf3;
+    --erro: #b42318;
+    --erro-fundo: #fef3f2;
+    --raio: 8px;
+    --sombra: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.mono { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
+
+/* ---------- Topo ---------- */
+
+.topo { background: var(--superficie); border-bottom: 1px solid var(--borda); }
+.topo-conteudo { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+
+.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
+.logo-marca {
+    display: inline-grid; place-items: center;
+    width: 28px; height: 28px;
+    background: var(--primaria); color: #fff;
+    border-radius: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+}
+
+.menu { display: flex; gap: 4px; }
+.menu a { padding: 6px 12px; border-radius: 6px; color: var(--texto-2); font-weight: 500; }
+.menu a:hover { background: var(--fundo); color: var(--texto); }
+.menu a.ativo { color: var(--texto); background: var(--fundo); }
+
+/* ---------- Página ---------- */
+
+main.container { padding-top: 32px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 24px; }
+
+.titulo-pagina h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+.titulo-pagina p { color: var(--texto-2); margin-top: 4px; }
+
+.indicadores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.indicador {
+    background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 16px 20px; box-shadow: var(--sombra);
+    display: flex; flex-direction: column; gap: 4px;
+}
+.indicador-rotulo { color: var(--texto-2); font-size: 13px; }
+.indicador-valor { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+
+.grade { display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+
+.painel {
+    background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio);
+    box-shadow: var(--sombra); padding: 20px 24px;
+}
+
+.painel-cabecalho { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.painel-cabecalho h2 { font-size: 15px; font-weight: 600; }
+.contador { color: var(--texto-3); font-size: 13px; }
+
+/* ---------- Formulários ---------- */
+
+.campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.campo label { font-size: 13px; font-weight: 500; color: var(--texto-2); }
+.campo input {
+    width: 100%;
+    font: inherit; padding: 9px 12px;
+    border: 1px solid var(--borda-forte); border-radius: 6px;
+    background: #fff; color: var(--texto);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.campo input:focus { outline: none; border-color: var(--primaria); box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12); }
+
+.form-item {
+    display: grid; grid-template-columns: 1fr 80px 140px auto; gap: 12px; align-items: end;
+    padding-bottom: 20px; margin-bottom: 4px; border-bottom: 1px solid var(--borda);
+}
+
+.campo-duplo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.botao {
+    font: inherit; font-weight: 500; cursor: pointer;
+    padding: 9px 16px; border-radius: 6px; border: 1px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+.botao-primario { background: var(--primaria); color: #fff; }
+.botao-primario:hover { background: var(--primaria-hover); }
+.botao-primario:disabled { background: var(--borda-forte); cursor: not-allowed; }
+.botao-secundario { background: #fff; border-color: var(--borda-forte); color: var(--texto); }
+.botao-secundario:hover { background: var(--fundo); }
+
+/* ---------- Tabelas ---------- */
+
+.tabela { width: 100%; border-collapse: collapse; }
+.tabela th {
+    text-align: left; font-size: 12px; font-weight: 500; color: var(--texto-2);
+    padding: 10px 12px; border-bottom: 1px solid var(--borda); background: #fafbfc;
+}
+.tabela td { padding: 12px; border-bottom: 1px solid var(--borda); }
+.tabela tbody tr:last-child td { border-bottom: none; }
+.tabela tbody tr:hover { background: #fafbfc; }
+.tabela .num { text-align: right; font-variant-numeric: tabular-nums; }
+.tabela .acoes { text-align: right; width: 1%; white-space: nowrap; }
+
+.link { color: var(--primaria); font-weight: 500; }
+.link:hover { text-decoration: underline; }
+.link-remover { color: var(--texto-3); font-size: 13px; }
+.link-remover:hover { color: var(--erro); }
+
+.estado-vazio {
+    text-align: center; color: var(--texto-3); padding: 32px 0;
+    border: 1px dashed var(--borda-forte); border-radius: 6px; margin-top: 16px;
+}
+
+/* ---------- Resumo ---------- */
+
+.resumo { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 24px; }
+
+.totais { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--borda); }
+.totais div { display: flex; justify-content: space-between; }
+.totais dt { color: var(--texto-2); }
+.totais dd { font-variant-numeric: tabular-nums; }
+.totais .total { padding-top: 8px; margin-top: 4px; border-top: 1px solid var(--borda); }
+.totais .total dt, .totais .total dd { color: var(--texto); font-weight: 600; font-size: 16px; }
+
+/* ---------- Alertas ---------- */
+
+.alerta { padding: 12px 16px; border-radius: 6px; font-weight: 500; }
+.alerta-erro { background: var(--erro-fundo); color: var(--erro); border: 1px solid #fecdca; }
+
+.selo-sucesso {
+    background: var(--sucesso-fundo); color: var(--sucesso);
+    padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 500;
+}
+
+/* ---------- Documento (orcamento.php) ---------- */
+
+.barra-acoes { background: var(--superficie); border-bottom: 1px solid var(--borda); }
+.barra-acoes-conteudo { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.barra-acoes-conteudo .selo-sucesso { margin-right: auto; }
+
+.documento {
+    max-width: 800px; margin: 32px auto 64px; background: #fff;
+    border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 48px 56px; box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+}
+
+.documento-cabecalho {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 24px; border-bottom: 2px solid var(--texto);
+}
+.documento-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.documento-tipo { font-size: 20px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.documento-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; padding: 24px 0; }
+.documento-info div { display: flex; flex-direction: column; gap: 2px; }
+.rotulo { font-size: 12px; color: var(--texto-2); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.tabela-documento th { background: transparent; border-bottom: 1px solid var(--texto); color: var(--texto); }
+.tabela-documento tbody tr:hover { background: transparent; }
+
+.totais-documento { margin-left: auto; width: 300px; margin-top: 16px; }
+
+.documento-rodape {
+    margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--borda);
+    color: var(--texto-2); font-size: 12px;
+}
+
+/* ---------- Responsivo e impressão ---------- */
+
+@media (max-width: 860px) {
+    .grade { grid-template-columns: 1fr; }
+    .indicadores { grid-template-columns: 1fr; }
+    .form-item { grid-template-columns: 1fr 1fr; }
+    .form-item .campo-largo { grid-column: 1 / -1; }
+    .documento { padding: 28px 20px; margin: 16px; }
+    .documento-info { grid-template-columns: 1fr; }
+}
+
+@media print {
+    body { background: #fff; }
+    .nao-imprimir { display: none !important; }
+    .documento { border: none; box-shadow: none; margin: 0; padding: 0; max-width: none; }
+}
